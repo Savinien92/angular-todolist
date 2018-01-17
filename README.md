@@ -28,4 +28,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 =======
 # angular-todolist
 simple todo list in angular 4
->>>>>>> 516b54299f627ca70789d15f84ca274edfd26440
