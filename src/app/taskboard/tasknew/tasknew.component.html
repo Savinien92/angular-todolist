@@ -1,0 +1,27 @@
+<mat-card>
+
+  <h1>Add a task</h1>
+
+  <div class="line"></div>
+
+  <form [formGroup]="tForm" (ngSubmit)="onSubmit(tForm.value); myNgForm.resetForm()" #myNgForm="ngForm">
+    <div class="form-control">
+      <mat-form-field hintLabel="Max 50 characters">
+        <input matInput maxlength="50" placeholder="Enter a task" formControlName="title">
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field>
+        <mat-select placeholder="Select a status" formControlName="status">
+          <mat-option value="1">Bas</mat-option>
+          <mat-option value="2">Normal</mat-option>
+          <mat-option value="3">Urgent</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-control form-action">
+      <button mat-raised-button [routerLink]="['']"><i class="material-icons">keyboard_arrow_left</i> Back to all tasks</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="tForm.invalid">Submit</button>
+    </div>
+  </form>
+</mat-card>

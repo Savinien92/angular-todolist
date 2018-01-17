@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+@include mat-core();
+$primary: mat-palette($mat-light-blue, 500); /*#03A9F4*/
+$accent:  mat-palette($mat-green, 500); /*#4CAF50*/
+$warn:    mat-palette($mat-red, 500); /*#F44336*/
+$theme:   mat-dark-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+.line {
+  margin: 30px 0;
+  height: 1px;
+  background-color: #555;
+}
+
+.mat-card {
+  max-width: 500px;
+  margin: 10% auto 0 auto;
+}
+
+.mat-form-field {
+  display: block !important;
+}
+
+.material-icons {
+  font-size: 20px;
+}
+
+.mat-button {
+  padding: 0 10px !important;
+  min-width: 30px !important;
+}
+
+.snack-bar-custom {
+  background-color: #4CAF50 !important;
+  color: #FFF !important;
+}
+
+.form-control {
+  margin: 20px 0;
+
+  &.form-action {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+}

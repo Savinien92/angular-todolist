@@ -1,0 +1,50 @@
+<mat-card>
+
+  <h1>TodoZer</h1>
+
+  <button mat-raised-button [routerLink]="['/new-task']">Add a task <i class="material-icons">playlist_add</i></button>
+
+  <button mat-raised-button (click)="deleteTasks()">Delete all tasks <i class="material-icons">delete_forever</i></button>
+
+  <div class="line"></div>
+
+  <ul class="tasks">
+
+    <div *ngIf="tasks !== false">
+
+      <ng-container *ngFor="let task of tasks">
+
+        <li class="task">
+          <div class="task-title">
+            <mat-checkbox [(ngModel)]="task.done" (click)="done(task.id, task.done)"></mat-checkbox>
+            <div class="title">{{ task.title }}</div>
+          </div>
+          <div class="task-action">
+            <div *ngIf="task.status === 1">
+              <span class="badge bas">Bas</span>
+            </div>
+            <div *ngIf="task.status === 2">
+              <span class="badge moyen">Moyen</span>
+            </div>
+            <div *ngIf="task.status === 3">
+              <span class="badge urgent">Urgent</span>
+            </div>
+            <span matTooltip="Update"><button mat-button [routerLink]="['/edit-task/' + task.id]"><i class="material-icons">mode_edit</i></button></span>
+            <span matTooltip="Delete"><button mat-button (click)="deleteTask(task.id)"><i class="material-icons">delete_forever</i></button></span>
+          </div>
+        </li>
+
+      </ng-container>
+
+    </div>
+
+    <div *ngIf="tasks === false">
+      <h3>No tasks now</h3>
+    </div>
+
+  </ul>
+
+</mat-card>
+
+
+
